@@ -32,6 +32,7 @@ then
     exit 1
 fi
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > output.txt
+grep "OK" output.txt && echo "pass" && exit 0
 echo -n $(grep -oE "Failures: [0-9]+" output.txt | grep -oE "[0-9]+") 
 echo " /" $(grep -oE "Tests run: [0-9]+" output.txt | grep -oE "[0-9]+") 
  
